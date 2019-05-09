@@ -2,3 +2,9 @@
 .project
 .settings/**
 target
+.idea
+
+# OS X
+.DS_Store*
+Icon?
+._*
