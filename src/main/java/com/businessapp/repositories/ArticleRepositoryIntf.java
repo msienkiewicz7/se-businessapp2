@@ -7,7 +7,7 @@ import com.businessapp.model.Article;
 
 /**
  * Public interface to access Article repository with CRUD methods (Create, Read, Update, Delete).
- * 
+ *
  * @author Sven Graupner
  *
  */
@@ -17,7 +17,7 @@ public interface ArticleRepositoryIntf extends RepositoryIntf<Article> {
 	/**
 	 * Create a new Article entity that is *not* yet managed in the repository.
 	 * A new entity is added to the repository using the update() method.
-	 * 
+	 *
 	 * @return new Article entity instance that is not yet managed in the repository.
 	 */
 	public Article create();
@@ -25,7 +25,7 @@ public interface ArticleRepositoryIntf extends RepositoryIntf<Article> {
 
 	/**
 	 * Read method that returns all entities of the repository.
-	 * 
+	 *
 	 * @return all entities of the repository.
 	 */
 	@Override
@@ -35,7 +35,7 @@ public interface ArticleRepositoryIntf extends RepositoryIntf<Article> {
 	/**
 	 * Read method that returns the repository entity with matching id or null if
 	 * entity is not found.
-	 * 
+	 *
 	 * @return entity with matching id.
 	 */
 	@Override
@@ -47,7 +47,7 @@ public interface ArticleRepositoryIntf extends RepositoryIntf<Article> {
 	 * found in the repository with same id. If no entity with matching id is found,
 	 * the entity passed as argument is inserted into the repository if the insert
 	 * flag is set to true. If set to false, no update is performed.
-	 * 
+	 *
 	 * @e entity to update values of repository entity with matching id.
 	 * @insert if true, entity is inserted if no entity with matching id exists.
 	 * @return reference to updated entity.
@@ -58,7 +58,7 @@ public interface ArticleRepositoryIntf extends RepositoryIntf<Article> {
 
 	/**
 	 * Delete entity with matching id from repository.
-	 * 
+	 *
 	 * @id id of entity to be deleted from repository.
 	 */
 	@Override
@@ -67,7 +67,7 @@ public interface ArticleRepositoryIntf extends RepositoryIntf<Article> {
 
 	/**
 	 * Delete all entities passed as argument from repository as one atomic transaction.
-	 * 
+	 *
 	 * @ids list of entities to be deleted from repository.
 	 */
 	@Override

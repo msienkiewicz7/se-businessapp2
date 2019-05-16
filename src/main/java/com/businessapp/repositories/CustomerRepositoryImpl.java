@@ -20,12 +20,12 @@ class CustomerRepositoryImpl extends GenericMemRepositoryImpl<Customer> implemen
 	/**
 	 * Create a new entity that is *not* yet managed in the repository.
 	 * A new entity is added to the repository using the update() method.
-	 * 
+	 *
 	 * @return new entity instance that is not yet managed in the repository.
 	 */
 	@Override
 	public Customer create() {
-		return new Customer( "Name..." );
+		return new Customer( "Vorname...", "Name..." );
 	}
 
 }

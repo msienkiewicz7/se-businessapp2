@@ -55,7 +55,7 @@ class TableViewable_Article extends TableViewable {
 	 */
 	public TableViewable_Article( TableViewFXMLController tvFxmlController, ArticleRepositoryIntf articleRepo ) {
 		this.repository = articleRepo;
-		this.entity = null;		// null indicates ArticleRepositoryDAO instance.		
+		this.entity = null;		// null indicates ArticleRepositoryDAO instance.
 		this.tvItemsList = FXCollections.observableArrayList();
 		this.tvFxmlController = tvFxmlController;
 	}
@@ -127,7 +127,7 @@ class TableViewable_Article extends TableViewable {
 					break;
 
 				case price:
-					entity.setPrice( val );
+					entity.setPrice( Long.parseLong( val ) );
 					break;
 
 				default:
@@ -164,7 +164,9 @@ class TableViewable_Article extends TableViewable {
 		switch( Col.valueOf( getColName( col ) ) ) {
 		case id:	return entity.getId();
 		case name:	return entity.getName();
-		case price:	return entity.getPrice();
+		case price:
+			double doubleprice = entity.getPrice() / 100;
+			return String.format( "%.2f EUR", doubleprice );
 		default:	return "-";
 		}
 	}

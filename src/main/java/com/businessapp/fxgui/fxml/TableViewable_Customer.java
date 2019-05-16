@@ -36,11 +36,12 @@ class TableViewable_Customer extends TableViewable {
 	private static final String cssPrefix = "tableview-customer";
 
 	// Enumerate Customer columns in Tableview.
-	private enum Col { id, name, status, notes, contact };
+	private enum Col { id, firstname ,name, status, notes, contact };
 
 	private static final String[][] _colDescr = {
 		// i_col=0,			i_label=1,	i_css=2,				i_visble=3, i_edble=4
 		{ Col.id.name(),	"Kund.-Nr.",cssPrefix + "-column-id",		"1", "0" },
+		{ Col.firstname.name(),"Vorname",	cssPrefix + "-column-firstname",	"1", "1" },
 		{ Col.name.name(),	"Name",		cssPrefix + "-column-name",		"1", "1" },
 		{ Col.status.name(),"Status",	cssPrefix + "-column-status",	"1", "1" },
 		{ Col.notes.name(),	"Anmerk.",	cssPrefix + "-column-notes",	"0", "0" },
@@ -68,7 +69,7 @@ class TableViewable_Customer extends TableViewable {
 	 */
 	public TableViewable_Customer( TableViewFXMLController tvFxmlController, CustomerRepositoryIntf custRepo ) {
 		this.repository = custRepo;
-		this.entity = null;		// null indicates CustomerRepositoryDAO instance.		
+		this.entity = null;		// null indicates CustomerRepositoryDAO instance.
 		this.tvItemsList = FXCollections.observableArrayList();
 		this.tvFxmlController = tvFxmlController;
 	}
@@ -139,6 +140,10 @@ class TableViewable_Customer extends TableViewable {
 				switch( Col.valueOf( key ) ) {
 				//case id:	//id's can't be updated.
 
+				case firstname:
+					entity.setFirstName( val );
+					break;
+
 				case name:
 					entity.setName( val );
 					break;
@@ -197,6 +202,7 @@ class TableViewable_Customer extends TableViewable {
 		String ret = "-";
 		switch( Col.valueOf( getColName( col ) ) ) {
 		case id:	return entity.getId();
+		case firstname:	return entity.getFirstName();
 		case name:	return entity.getName();
 		case status:
 			CustomerStatus st = entity.getStatus();
@@ -274,7 +280,7 @@ class TableViewable_Customer extends TableViewable {
 
 	private Callback<TableColumn<TableViewable, String>, TableCell<TableViewable, String>> getNotesCellFactory() {
 		return new Callback<TableColumn<TableViewable, String>, TableCell<TableViewable, String>>() {
-			
+
 			@Override
 			public TableCell<TableViewable, String> call( TableColumn<TableViewable, String> col ) {
 				col.setCellValueFactory( cellData -> {
@@ -294,7 +300,7 @@ class TableViewable_Customer extends TableViewable {
 						ObservableList<TableViewable> cust = tvItemsList;
 
 						if( rowIdx >= 0 && rowIdx < cust.size() ) {
-							TableViewable_Customer customer = (TableViewable_Customer)cust.get( rowIdx );		
+							TableViewable_Customer customer = (TableViewable_Customer)cust.get( rowIdx );
 							setGraphic( null );		// always clear, needed for refresh
 							if( customer != null ) {
 								btn.getStyleClass().add( cssPrefix + "-column-notes-button" );

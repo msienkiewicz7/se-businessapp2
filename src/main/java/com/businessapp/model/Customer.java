@@ -9,9 +9,9 @@ import com.businessapp.logic.IDGenerator;
 /**
  * Customer is an Entity-class of someone with whom a business relationship
  * is maintained.
- * 
+ *
  * @author Sven Graupner
- * 
+ *
  */
 
 public class Customer implements EntityIntf {
@@ -22,6 +22,7 @@ public class Customer implements EntityIntf {
 	 */
 	private final String id;	// Unique, non-null Customer id.
 
+	private String firstname;		// Customer first name.
 	private String name;		// Customer name.
 
 	// List of contacts such as Customer email, phone, etc.
@@ -40,14 +41,14 @@ public class Customer implements EntityIntf {
 	 * Private default constructor (required by JSON deserialization).
 	 */
 	@SuppressWarnings("unused")
-	private Customer() { this( null ); }
+	private Customer() { this( null, null ); }
 
 	/**
 	 * Public constructor.
 	 * @param name Customer name.
 	 */
-	public Customer( String name ) {
-		this( null, name );
+	public Customer( String firstname, String name ) {
+		this( null, firstname ,name );
 	}
 
 	/**
@@ -57,8 +58,9 @@ public class Customer implements EntityIntf {
 	 */
 	private static final IDGenerator IDG = new IDGenerator( "C.", IDGenerator.IDTYPE.AIRLINE, 6 );
 	//
-	public Customer( String id, String name ) {
+	public Customer( String id, String firstname, String name ) {
 		this.id = id==null? IDG.nextId() : id;
+		this.firstname = firstname;
 		this.name = name;
 		this.notes.add( new Note( "Customer record created." ) );
 		this.status = CustomerStatus.ACTIVE;
@@ -79,6 +81,22 @@ public class Customer implements EntityIntf {
 
 	/**
 	 * Return Customer name.
+	 * @return Customer firstname.
+	 */
+	public String getFirstName() {
+		return firstname;
+	}
+
+	/**
+	 * Set Customer name.
+	 * @param name Customer firstname.
+	 */
+	public void setFirstName( String firstname ) {
+		this.firstname = firstname;
+	}
+
+	/**
+	 * Return Customer name.
 	 * @return Customer name.
 	 */
 	public String getName() {
@@ -92,6 +110,21 @@ public class Customer implements EntityIntf {
 	public void setName( String name ) {
 		this.name = name;
 	}
+	/**
+	 * Return Customer full name.
+	 * @return Customer full name.
+	 */
+	public String getFullName() {
+		return String.format("%s %s", firstname, name);
+	}
+	//
+	// /**
+	//  * Set Customer name.
+	//  * @param name Customer name.
+	//  */
+	// private void setName( String name ) {
+	// 	this.name = name;
+	// }
 
 	/**
 	 * Return list of Customer contacts.

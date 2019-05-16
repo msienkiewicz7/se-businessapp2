@@ -5,9 +5,9 @@ import com.businessapp.logic.IDGenerator;
 
 /**
  * Article is an Entity-class that represents an item for rent or for sale.
- * 
+ *
  * @author Sven Graupner
- * 
+ *
  */
 public class Article implements EntityIntf {
 	private static final long serialVersionUID = 1L;
@@ -19,19 +19,19 @@ public class Article implements EntityIntf {
 
 	private String name;		// Article name.
 
-	private String price;		// Article price.
+	private long price;		// Article price (in cent).
 
 	/**
 	 * Private default constructor (required by JSON deserialization).
 	 */
 	@SuppressWarnings("unused")
-	private Article() { this( null, null, null ); }
+	private Article() { this( null, null, 0 ); }
 
 	/**
 	 * Public constructor.
 	 * @param name Article name.
 	 */
-	public Article( String name, String price ) {
+	public Article( String name, long price ) {
 		this( null, name, price );
 	}
 
@@ -42,7 +42,7 @@ public class Article implements EntityIntf {
 	 */
 	private static final IDGenerator IDG = new IDGenerator( null, IDGenerator.IDTYPE.NUM, 8 );
 	//
-	public Article( String id, String name, String price ) {
+	public Article( String id, String name, long price ) {
 		this.id = id==null? IDG.nextId() : id;
 		this.name = name;
 		setPrice( price );
@@ -81,15 +81,15 @@ public class Article implements EntityIntf {
 	 * Return Article price.
 	 * @return Article price.
 	 */
-	public String getPrice() {
+	public long getPrice() {
 		return price;
 	}
 
 	/**
 	 * Set Article price.
-	 * @param name Article price.
+	 * @param price Article price.
 	 */
-	public void setPrice( String price ) {
+	public void setPrice( long price ) {
 		this.price = price;
 	}
 

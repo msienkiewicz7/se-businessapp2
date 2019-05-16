@@ -21,12 +21,12 @@ class ArticleRepositoryImpl extends GenericMemRepositoryImpl<Article> implements
 	/**
 	 * Create a new entity that is *not* yet managed in the repository.
 	 * A new entity is added to the repository using the update() method.
-	 * 
+	 *
 	 * @return new entity instance that is not yet managed in the repository.
 	 */
 	@Override
 	public Article create() {
-		return new Article( "Canon Objektiv Name...", "0,00" );
+		return new Article( "Canon Objektiv Name...", 0 );
 	}
 
 }
