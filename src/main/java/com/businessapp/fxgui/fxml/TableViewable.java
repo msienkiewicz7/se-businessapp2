@@ -1,5 +1,6 @@
 package com.businessapp.fxgui.fxml;
 
+import com.businessapp.repositories.ReservationRepositoryIntf;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -30,6 +31,12 @@ public abstract class TableViewable implements ManagedComponentIntf {
 			TableViewFXMLController tvFxmlController, ArticleRepositoryIntf repository )
 	{
 		return new TableViewable_Article( tvFxmlController, repository );
+	}
+
+	public static TableViewable createTableView_Reservation(
+			TableViewFXMLController tvFxmlController, ReservationRepositoryIntf repository )
+	{
+		return new TableViewable_Reservation( tvFxmlController, repository );
 	}
 
 	abstract Object[][] getColDescr();

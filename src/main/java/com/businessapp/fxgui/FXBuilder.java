@@ -1,5 +1,6 @@
 package com.businessapp.fxgui;
 
+import com.businessapp.repositories.ReservationRepositoryIntf;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -48,6 +49,7 @@ public class FXBuilder extends Application implements ManagedComponentIntf {
 		{ CalculatorIntf.Calculator,"Calculator",	"Calculator.fxml",	"0" },
 		{ RepositoryBuilder.Customer,	"Customers",	"TableView.fxml",	"1" },
 		{ RepositoryBuilder.Article,		"Artikel",		"TableView.fxml",	"0" },
+		{ RepositoryBuilder.Reservation,		"Reservation",		"TableView.fxml",	"0" },
 	};
 
 	private final Stage stage;
@@ -249,6 +251,27 @@ public class FXBuilder extends Application implements ManagedComponentIntf {
 							tvFxmlController.start();
 							tv.start();
 							break;
+
+						case RepositoryBuilder.Reservation:
+							// 1. Cast fxmlController to TableViewFXMLController.
+							tvFxmlController = (TableViewFXMLController)fxmlController;
+
+							// 2. Fetch Customer data repository.
+							ReservationRepositoryIntf reservationRepo = RepositoryBuilder.getInstance().getReservationRepository();
+
+							// 3. Configure FXMLController with "isResizable" feature (resizable column widths).
+							tvFxmlController.inject( "1".equals( descr[ Idx.i_rszTble.ordinal() ] ) );
+
+							// 4. Create TableView for Customer and inject FXMLController and Customer repository into TableView.
+							tv = TableViewable.createTableView_Reservation( tvFxmlController, reservationRepo );
+
+							// 5. Inject created TableView back into FXMLController.
+							tvFxmlController.inject( tv );
+							tvFxmlController.start();	// Start FXMLController.
+							tv.start();	// Start TableView.
+							break;
+
+
 
 						case CalculatorIntf.Calculator:
 							CalculatorFXMLController calcFxmlController = (CalculatorFXMLController)fxmlController;

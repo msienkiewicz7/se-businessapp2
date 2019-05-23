@@ -17,22 +17,28 @@ public class Article implements EntityIntf {
 	 */
 	private final String id;	// Unique, non-null Article id.
 
-	private String name;		// Article name.
+	private String name;		// Article full name.
 
-	private long price;		// Article price (in cent).
+	private String display_name;		// Article short name.
+
+	private double price;		// Article price (in cent).
 
 	/**
 	 * Private default constructor (required by JSON deserialization).
 	 */
 	@SuppressWarnings("unused")
-	private Article() { this( null, null, 0 ); }
+	private Article() { this( null, null, null, 0 ); }
 
 	/**
 	 * Public constructor.
 	 * @param name Article name.
 	 */
-	public Article( String name, long price ) {
-		this( null, name, price );
+	public Article(  String name, double price ) {
+		this( null, name, name, price );
+	}
+
+	public Article(  String name, String display_name, double price ) {
+		this( null, name, display_name, price );
 	}
 
 	/**
@@ -42,9 +48,10 @@ public class Article implements EntityIntf {
 	 */
 	private static final IDGenerator IDG = new IDGenerator( null, IDGenerator.IDTYPE.NUM, 8 );
 	//
-	public Article( String id, String name, long price ) {
+	public Article( String id, String name, String display_name, double price ) {
 		this.id = id==null? IDG.nextId() : id;
 		this.name = name;
+		this.display_name = display_name;
 		setPrice( price );
 	}
 
@@ -81,7 +88,7 @@ public class Article implements EntityIntf {
 	 * Return Article price.
 	 * @return Article price.
 	 */
-	public long getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
@@ -89,7 +96,7 @@ public class Article implements EntityIntf {
 	 * Set Article price.
 	 * @param price Article price.
 	 */
-	public void setPrice( long price ) {
+	public void setPrice( double price ) {
 		this.price = price;
 	}
 

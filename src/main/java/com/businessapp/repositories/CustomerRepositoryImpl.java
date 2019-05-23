@@ -25,7 +25,7 @@ class CustomerRepositoryImpl extends GenericMemRepositoryImpl<Customer> implemen
 	 */
 	@Override
 	public Customer create() {
-		return new Customer( "Vorname...", "Name..." );
+		return new Customer( "vorname", "name" );
 	}
 
 }

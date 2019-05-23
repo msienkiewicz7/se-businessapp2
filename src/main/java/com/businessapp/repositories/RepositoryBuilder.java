@@ -1,13 +1,13 @@
 package com.businessapp.repositories;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import com.businessapp.logic.ManagedComponentIntf;
 import com.businessapp.model.Article;
 import com.businessapp.model.Customer;
 import com.businessapp.model.Customer.CustomerStatus;
 import com.businessapp.model.Note;
+import com.businessapp.model.Reservation;
 
 
 /**
@@ -22,9 +22,11 @@ public class RepositoryBuilder implements ManagedComponentIntf {
 
 	public static final String Customer = "Customer";
 	public static final String Article = "Article";
+	public static final String Reservation = "Reservation";
 
 	private final CustomerRepositoryIntf customerRepository;
 	private final ArticleRepositoryIntf articleRepository;
+	private final ReservationRepositoryIntf reservationRepository;
 
 	/**
 	 * Private constructor.
@@ -35,6 +37,9 @@ public class RepositoryBuilder implements ManagedComponentIntf {
 
 		List<Article> articleList = new ArrayList<Article>();
 		this.articleRepository = new ArticleRepositoryImpl( articleList );
+
+		List<Reservation> reservationList = new ArrayList<Reservation>();
+		this.reservationRepository = new ReservationRepositoryImpl( reservationList );
 	}
 
 	/**
@@ -54,14 +59,20 @@ public class RepositoryBuilder implements ManagedComponentIntf {
 	public void start() {
 		customerRepository.start();
 		buildCustomerFixture( customerRepository.findAll() );
+
 		articleRepository.start();
 		buildArticleFixture( articleRepository.findAll() );
+
+		reservationRepository.start();
+		buildReservationListFixture( reservationRepository.findAll() );
 	}
+
 
 	@Override
 	public void stop() {
 		articleRepository.stop();
 		customerRepository.stop();
+		reservationRepository.stop();
 	}
 
 	@Override
@@ -77,6 +88,10 @@ public class RepositoryBuilder implements ManagedComponentIntf {
 
 	public ArticleRepositoryIntf getArticleRepository() {
 		return articleRepository;
+	}
+
+	public ReservationRepositoryIntf getReservationRepository() {
+		return reservationRepository;
 	}
 
 	/**
@@ -166,12 +181,30 @@ public class RepositoryBuilder implements ManagedComponentIntf {
 	 * @param list container into which entities are inserted.
 	 */
 	public List<Article> buildArticleFixture( List<Article> list ) {
-		list.add( new Article( "Canon Objektiv EF 50mm f/1.2L USM", 154900 ) );
-		list.add( new Article( "Canon Objektiv EF 50mm f/1.4 USM", 44900 ) );
+		list.add( new Article("Makita Akku-Bohrschrauber 18V / 5,0 Ah", "Akku-Bohrschrauber", 149.99 ) );
 
-		list.add( new Article( "Canon Objektiv EF 40mm f/2.8 STM", 23900 ) );
-		list.add( new Article( "Canon Objektiv EF 50mm f/1.8 STM", 13900 ) );
-		list.add( new Article( "Canon Objektiv EF 24-70mm f/4L IS USM", 92900 ) );
+		list.add( new Article("Makita DUC353Z Akku-Kettensäge 2x18V / 35 cm","Akku-Kettensäge",  189.99));
+
+		list.add( new Article("Makita HP2051FJ Schlagbohrmaschine 720 W mit LED","Schlagbohrmaschine",  179.99));
+
+		list.add( new Article("Makita 9558HNRG Winkelschleifer 125 mm 840 W","Winkelschleifer",  99.99));
+
+		list.add( new Article("Makita BO3711 Schwingschleifer 93 x 228 mm","Schwingschleifer",  159.99));
+
+		list.add( new Article("Makita DLM380Z Akku-Rasenmäher 2 x 18 V","Elektro-Rasenmäher",  349.99));
+
+		list.add( new Article("Makita DVC860LZ Akku-Staubsauger 2x18V","Gebläse/Sauger",  499.99));
+
+		list.add( new Article("Makita P-90532 Werkzeug-Set 227-teilig 8 x 160 mm ","Werkzeugset 227tl",  199.99));
+
+
+
+//		list.add( new Article( "Canon Objektiv EF 50mm f/1.2L USM", 154900 ) );
+//		list.add( new Article( "Canon Objektiv EF 50mm f/1.4 USM", 44900 ) );
+//
+//		list.add( new Article( "Canon Objektiv EF 40mm f/2.8 STM", 23900 ) );
+//		list.add( new Article( "Canon Objektiv EF 50mm f/1.8 STM", 13900 ) );
+//		list.add( new Article( "Canon Objektiv EF 24-70mm f/4L IS USM", 92900 ) );
 		// list.add( new Article( "Canon Objektiv EF 24-105mm f/4L IS II USM", "1.199,00 EUR" ) );
 		// list.add( new Article( "Canon Objektiv EF 24-70mm f/2.8L II USM", "2.019,00 EUR" ) );
 		// list.add( new Article( "Canon Objektiv EF-S 18-55mm f/4-5.6 IS STM", "249,00 EUR" ) );
@@ -216,4 +249,19 @@ public class RepositoryBuilder implements ManagedComponentIntf {
 		return list;
 	}
 
+	private List<Reservation> buildReservationListFixture(List<Reservation> list) {
+		List<Customer> cList = customerRepository.findAll();
+		List<Article> aList = articleRepository.findAll();
+
+		Reservation r = new Reservation();
+		r.setDate(new GregorianCalendar(Locale.GERMANY).getTime());
+//		r.setDate(new Date(2019, 1, 1, 12, 0));
+		r.setCustomerId(cList.get(0).getId());
+		r.setStatus(com.businessapp.model.Reservation.ReservationStatus.ACTIVE);
+		r.setArticle(aList.get(0).getId());
+		list.add(r);
+
+
+		return list;
+	}
 }

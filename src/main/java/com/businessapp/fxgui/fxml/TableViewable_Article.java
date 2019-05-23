@@ -127,7 +127,7 @@ class TableViewable_Article extends TableViewable {
 					break;
 
 				case price:
-					entity.setPrice( Long.parseLong( val ) );
+					entity.setPrice( Double.parseDouble( val ) );
 					break;
 
 				default:
@@ -165,7 +165,7 @@ class TableViewable_Article extends TableViewable {
 		case id:	return entity.getId();
 		case name:	return entity.getName();
 		case price:
-			double doubleprice = entity.getPrice() / 100;
+			double doubleprice = entity.getPrice();
 			return String.format( "%.2f EUR", doubleprice );
 		default:	return "-";
 		}
