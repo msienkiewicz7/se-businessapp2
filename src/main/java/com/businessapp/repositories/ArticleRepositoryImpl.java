@@ -26,7 +26,7 @@ class ArticleRepositoryImpl extends GenericMemRepositoryImpl<Article> implements
 	 */
 	@Override
 	public Article create() {
-		return new Article( "Canon Objektiv Name...", 0 );
+		return new Article( "Gerätename...", 0 );
 	}
 
 }

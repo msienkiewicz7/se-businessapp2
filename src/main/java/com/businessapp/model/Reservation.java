@@ -35,7 +35,7 @@ public class Reservation implements EntityIntf {
 
     public Reservation(String id, String cid, Date date) {
         this.id = id==null ? IDG.nextId() : id;
-        this.cid = cid;
+        this.cid = cid==null ? "C." : cid;
         this.status = ReservationStatus.ACTIVE;
         this.date = date;
     }

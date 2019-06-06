@@ -154,8 +154,11 @@ public class TableViewable_Reservation extends TableViewable {
     public String getCellValueAsString(int col) {
         String ret = "-";
         switch( Col.valueOf( getColName( col ) ) ) {
-            case id:	return entity.getId();
-            case cid:	return entity.getCustomerId();
+            case id:
+                return entity.getId();
+            case cid:
+//                log.info("getCellValue: " + entity.getCustomerId());
+                return entity.getCustomerId();
             case status:
                 Reservation.ReservationStatus st = entity.getStatus();
                 switch( st ) {
