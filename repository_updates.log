@@ -1,0 +1,16 @@
+2019-06-06 14:54:14:360 INFO  GenericMemRepositoryImpl: CustomerRepositoryImpl started.
+2019-06-06 14:54:14:369 INFO  GenericMemRepositoryImpl: ArticleRepositoryImpl started.
+2019-06-06 14:54:14:371 INFO  GenericMemRepositoryImpl: ReservationRepositoryImpl started.
+2019-06-06 14:56:42:648 INFO  GenericMemRepositoryImpl: ==> deleted(C.FJHDFY)
+2019-06-06 14:56:44:095 INFO  GenericMemRepositoryImpl: ==> deleted(C.89DK59)
+2019-06-06 15:01:12:786 INFO  GenericMemRepositoryImpl: ArticleRepositoryImpl stopped.
+2019-06-06 15:01:12:787 INFO  GenericMemRepositoryImpl: CustomerRepositoryImpl stopped.
+2019-06-06 15:01:12:787 INFO  GenericMemRepositoryImpl: ReservationRepositoryImpl stopped.
+2019-06-06 15:14:13:222 INFO  GenericMemRepositoryImpl: CustomerRepositoryImpl started.
+2019-06-06 15:14:13:230 INFO  GenericMemRepositoryImpl: ArticleRepositoryImpl started.
+2019-06-06 15:14:13:233 INFO  GenericMemRepositoryImpl: ReservationRepositoryImpl started.
+2019-06-06 15:14:32:684 INFO  GenericMemRepositoryImpl: ==> created(R.XDGJR9)
+2019-06-06 15:14:41:354 INFO  GenericMemRepositoryImpl: ==> updated(R.XDGJR9)
+2019-06-06 15:14:58:737 INFO  GenericMemRepositoryImpl: ArticleRepositoryImpl stopped.
+2019-06-06 15:14:58:738 INFO  GenericMemRepositoryImpl: CustomerRepositoryImpl stopped.
+2019-06-06 15:14:58:738 INFO  GenericMemRepositoryImpl: ReservationRepositoryImpl stopped.

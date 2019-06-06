@@ -1,0 +1,117 @@
+
+.text-field {
+  -fx-background-color: transparent;
+  -fx-background-insets: 0;
+  -fx-padding: 0 0 0 0;
+}
+
+.table-view .table-cell, .table-view .column-header .label {
+	-fx-alignment: CENTER-LEFT;
+	-fx-padding: 1 1 1 6;	/* top, right, bottom, left */
+}
+.table-view .column-header .label {
+}
+
+
+
+
+.tableview-customer-column-id, .tableview-article-column-id {
+	-fx-pref-width: 72px;
+}
+.tableview-customer-column-id.table-cell, .tableview-customer-article-id.table-cell {
+	-fx-font-family: "monospaced";
+}
+.tableview-customer-column-id.table-cell:hover, .tableview-article-column-id.table-cell:hover {
+	-fx-font-weight: bold;
+}
+
+.tableview-customer-column-status {
+	-fx-pref-width: 48px;
+}
+.tableview-customer-column-status.table-cell {
+	-fx-alignment: CENTER;
+	-fx-padding: 1 0 1 0;	/* top, right, bottom, left */
+}
+
+.tableview-customer-column-notes {
+	-fx-pref-width: 64px;
+	-fx-alignment: CENTER;
+}
+
+.tableview-customer-column-contacts .label {
+	-fx-alignment: CENTER;
+	-fx-pref-width: 10000px;		/* Contacts column fills TableView width, header */
+}
+.tableview-customer-column-contacts {
+	-fx-alignment: CENTER-LEFT;
+	-fx-pref-width: 10000px;		/* Contacts column fills TableView width, rows */
+}
+
+.tableview-customer-column-notes-button {
+  -fx-background-color: #fff4d8; 	/* color name: corn silk, #fff8dc-#000404 */
+  -fx-background-insets: 0;
+  -fx-padding: 0 0 0 0;
+  -fx-pref-width: 50px;
+}
+.tableview-customer-column-notes-button:hover {
+	-fx-background-color: #ffd8bc;	/* color name: corn silk, #fff8dc-#002020 */
+}
+
+
+
+
+
+.tableview-article-column-name, .tableview-article-column-name .label {
+	-fx-alignment: CENTER-LEFT;
+	-fx-pref-width: 320px;
+}
+
+.tableview-article-column-price, .tableview-article-column-price .label {
+	-fx-alignment: CENTER-RIGHT !important;
+	-fx-pref-width: 90px;
+	/* -fx-background-color: blue; */
+}
+
+.tableview-hbox {
+    -fx-spacing: 10;		/* horizontal spacing between hbox elements */
+}
+.tableview-hbox > .button {
+	-fx-min-width: 50px;	/* prevent button label from being squeezed to "..." */
+	-fx-padding: 1 10 1 10;	/* top, right, bottom, left */
+	-fx-text-alignment: center;
+}
+.tableview-hbox > .text-field {
+	-fx-pref-width: 400;
+	-fx-max-height: 20;
+	-fx-padding: 0 10 0 10;
+	-fx-border-color: grey;
+	-fx-border-width: 1;
+	-fx-border-radius: 4;
+	-fx-background-color: transparent;
+	-fx-text-fill: black;
+}
+.tableview-hbox > .text-field:hover {
+	-fx-background-color: white;
+}
+
+
+/*
+ * Disable horizontal scrollbar in TableView.
+ * Source: https://community.oracle.com/thread/2377826
+ */
+.table-view *.scroll-bar:horizontal *.increment-button,
+.table-view *.scroll-bar:horizontal *.decrement-button {
+    -fx-background-color: null;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.table-view *.scroll-bar:horizontal *.increment-arrow, 
+.table-view *.scroll-bar:horizontal *.decrement-arrow {
+    -fx-background-color: null;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-shape: null;
+}

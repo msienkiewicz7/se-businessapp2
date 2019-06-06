@@ -1,26 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project
+ xmlns="http://maven.apache.org/POM/4.0.0"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
 	<modelVersion>4.0.0</modelVersion>
 
+	<!-- Parent project file.
+			https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent
+	-->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.0.BUILD-SNAPSHOT</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<version>2.1.5.RELEASE</version>
 	</parent>
 
+	<!-- This project. -->
 	<groupId>com.businessapp</groupId>
 	<artifactId>businessapp</artifactId>
-	<version>2.0.0-SNAPSHOT</version>
+	<version>v1.0.0.SNAPSHOT</version>
 	<name>se-businessapp2</name>
 	<description>Software Engineering 2 project with Spring Boot</description>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<openjfx.version>12</openjfx.version>
+		<log4j.version>1.2.17</log4j.version>
+		<maven.test.skip>true</maven.test.skip>
 	</properties>
 
+	<!-- Project dependencies. -->
 	<dependencies>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
@@ -31,46 +41,51 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- include open JavaFX openjfx dependency for Java -->
+		<!-- https://stackoverflow.com/questions/52653836/maven-shade-javafx-runtime-components-are-missing -->
+		<dependency>
+		    <groupId>org.openjfx</groupId>
+		    <artifactId>javafx-fxml</artifactId>
+		    <version>${openjfx.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+
 	</dependencies>
 
+	<!-- Configuration of build stage. -->
 	<build>
 		<plugins>
+			<!-- Use Spring Boots maven build plugin. -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-	</build>
 
-	<repositories>
-		<repository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</pluginRepository>
-		<pluginRepository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-		</pluginRepository>
-	</pluginRepositories>
+		<!-- Build plugin extension to copy/package resources needed during run-time to target -->
+		<resources>
+			<resource>
+				<!-- Copy all files to ./target/classes -->
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<!-- Copy files from source tree to target -->
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.fxml</include>
+					<include>**/*.css</include>
+					<include>**/*.sql</include>
+				</includes>
+			</resource>
+		</resources>
+		<!-- /Build plugin extension -->
+	</build>
 
 </project>
