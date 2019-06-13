@@ -14,3 +14,12 @@
 2019-06-06 15:14:58:737 INFO  GenericMemRepositoryImpl: ArticleRepositoryImpl stopped.
 2019-06-06 15:14:58:738 INFO  GenericMemRepositoryImpl: CustomerRepositoryImpl stopped.
 2019-06-06 15:14:58:738 INFO  GenericMemRepositoryImpl: ReservationRepositoryImpl stopped.
+2019-06-13 14:33:48:039 INFO  GenericMemRepositoryImpl: CustomerRepositoryImpl started.
+2019-06-13 14:33:48:044 INFO  GenericMemRepositoryImpl: ArticleRepositoryImpl started.
+2019-06-13 14:33:48:045 INFO  GenericMemRepositoryImpl: ReservationRepositoryImpl started.
+2019-06-13 14:41:48:958 INFO  GenericMemRepositoryImpl: CustomerRepositoryImpl started.
+2019-06-13 14:41:48:963 INFO  GenericMemRepositoryImpl: ArticleRepositoryImpl started.
+2019-06-13 14:41:48:968 INFO  GenericMemRepositoryImpl: ReservationRepositoryImpl started.
+2019-06-13 14:46:46:563 INFO  GenericMemRepositoryImpl: CustomerRepositoryImpl stopped.
+2019-06-13 14:46:46:564 INFO  GenericMemRepositoryImpl: ArticleRepositoryImpl stopped.
+2019-06-13 14:46:46:565 INFO  GenericMemRepositoryImpl: ReservationRepositoryImpl stopped.
