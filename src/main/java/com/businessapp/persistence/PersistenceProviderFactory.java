@@ -40,7 +40,7 @@ public class PersistenceProviderFactory {
 			break;
 
 		case JSONSerialization:
-			//serializationProvider = new JSONPersistenceProvider( path, clazz );
+			serializationProvider = new JSONPersistenceProvider( path, clazz );
 			break;
 
 		default:

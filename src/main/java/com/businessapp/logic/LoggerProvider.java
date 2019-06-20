@@ -16,7 +16,8 @@ public class LoggerProvider implements ManagedComponentIntf {
 	private final								// actual logger used internally
 		// java.util.logging.Logger realLogger;		// Java's built-in logging framework
 		//org.slf4j.Logger realLogger;				// slf4j logging framework
-		org.apache.log4j.Logger realLogger;		// widely used log4j logging framework
+//		org.apache.log4j.Logger realLogger;		// widely used log4j logging framework
+		org.apache.logging.log4j.Logger realLogger;
 
 
 	/**
@@ -29,7 +30,8 @@ public class LoggerProvider implements ManagedComponentIntf {
 			//java.util.logging.Logger.getLogger( clazz.getName() );
 //			configureJavaUtilLogger( java.util.logging.Logger.getLogger( clazz.getName() ) );
 			//org.slf4j.LoggerFactory.getLogger( clazz );
-			org.apache.log4j.Logger.getLogger( clazz );
+//			org.apache.log4j.Logger.getLogger( clazz );
+			org.apache.logging.log4j.LogManager.getLogger();
 	}
 
 

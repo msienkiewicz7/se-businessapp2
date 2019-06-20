@@ -164,9 +164,7 @@ class TableViewable_Article extends TableViewable {
 		switch( Col.valueOf( getColName( col ) ) ) {
 		case id:	return entity.getId();
 		case name:	return entity.getName();
-		case price:
-			double doubleprice = entity.getPrice();
-			return String.format( "%.2f EUR", doubleprice );
+		case price: return entity.getPriceAsString();
 		default:	return "-";
 		}
 	}

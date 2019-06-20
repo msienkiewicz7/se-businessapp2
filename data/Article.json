@@ -1,0 +1,46 @@
+[ {
+  "id" : "45142885",
+  "name" : "Makita Akku-Bohrschrauber 18V / 5,0 Ah",
+  "short_name" : "-",
+  "price" : 149.99
+}, {
+  "id" : "82501939",
+  "name" : "Makita DUC353Z Akku-Kettensäge 2x18V / 35 cm",
+  "short_name" : "-",
+  "price" : 189.99
+}, {
+  "id" : "20834402",
+  "name" : "Makita HP2051FJ Schlagbohrmaschine 720 W mit LED",
+  "short_name" : "-",
+  "price" : 179.99
+}, {
+  "id" : "75127704",
+  "name" : "Makita 9558HNRG Winkelschleifer 125 mm 840 W",
+  "short_name" : "-",
+  "price" : 99.99
+}, {
+  "id" : "90605064",
+  "name" : "Makita BO3711 Schwingschleifer 93 x 228 mm",
+  "short_name" : "-",
+  "price" : 159.99
+}, {
+  "id" : "74969729",
+  "name" : "Makita DLM380Z Akku-Rasenmäher 2 x 18 V",
+  "short_name" : "-",
+  "price" : 349.99
+}, {
+  "id" : "82888778",
+  "name" : "Makita DVC860LZ Akku-Staubsauger 2x18V",
+  "short_name" : "-",
+  "price" : 499.99
+}, {
+  "id" : "69380279",
+  "name" : "Makita P-90532 Werkzeug-Set 227-teilig 8 x 160 mm ",
+  "short_name" : "-",
+  "price" : 199.99
+}, {
+  "id" : "21087959",
+  "name" : "Makita X",
+  "short_name" : "Gerätename...",
+  "price" : 123.0
+} ]

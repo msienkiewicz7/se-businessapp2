@@ -1,6 +1,10 @@
 package com.businessapp.model;
 
 import com.businessapp.logic.IDGenerator;
+import com.businessapp.model.customserializer.ArticleJSONDeserializer;
+import com.businessapp.model.customserializer.ArticleJSONSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 
 /**
@@ -9,6 +13,10 @@ import com.businessapp.logic.IDGenerator;
  * @author Sven Graupner
  *
  */
+
+@JsonSerialize(using = ArticleJSONSerializer.class)
+@JsonDeserialize(using = ArticleJSONDeserializer.class)
+
 public class Article implements EntityIntf {
 	private static final long serialVersionUID = 1L;
 
@@ -19,7 +27,7 @@ public class Article implements EntityIntf {
 
 	private String name;		// Article full name.
 
-	private String display_name;		// Article short name.
+	private String short_name;		// Article short name.
 
 	private double price;		// Article price (in cent).
 
@@ -37,8 +45,8 @@ public class Article implements EntityIntf {
 		this( null, name, name, price );
 	}
 
-	public Article(  String name, String display_name, double price ) {
-		this( null, name, display_name, price );
+	public Article(String name, String short_name, double price ) {
+		this( null, name, short_name, price );
 	}
 
 	/**
@@ -48,10 +56,10 @@ public class Article implements EntityIntf {
 	 */
 	private static final IDGenerator IDG = new IDGenerator( null, IDGenerator.IDTYPE.NUM, 8 );
 	//
-	public Article( String id, String name, String display_name, double price ) {
+	public Article(String id, String name, String short_name, double price ) {
 		this.id = id==null? IDG.nextId() : id;
 		this.name = name;
-		this.display_name = display_name;
+		this.short_name = short_name;
 		setPrice( price );
 	}
 
@@ -85,11 +93,35 @@ public class Article implements EntityIntf {
 	}
 
 	/**
+	 * Return Article .
+	 * @return Article name.
+	 */
+	public String getShortName() {
+		return short_name;
+	}
+
+	/**
+	 * Set Article name.
+	 * @param short_name Article name.
+	 */
+	public void setShortName( String short_name ) {
+		this.short_name = short_name;
+	}
+
+	/**
 	 * Return Article price.
 	 * @return Article price.
 	 */
 	public double getPrice() {
 		return price;
+	}
+
+	/**
+	 * Return Article price.
+	 * @return Article price as an String.
+	 */
+	public String getPriceAsString() {
+		return String.format( "%.2f EUR", price );
 	}
 
 	/**

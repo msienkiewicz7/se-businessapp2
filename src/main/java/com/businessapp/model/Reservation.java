@@ -1,10 +1,17 @@
 package com.businessapp.model;
 
 import com.businessapp.logic.IDGenerator;
+import com.businessapp.model.customserializer.ReservationJSONDeserializer;
+import com.businessapp.model.customserializer.ReservationJSONSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+@JsonSerialize(using = ReservationJSONSerializer.class)
+@JsonDeserialize(using = ReservationJSONDeserializer.class)
 
 public class Reservation implements EntityIntf {
     private static final long serialVersionUID = 1L;
@@ -74,6 +81,10 @@ public class Reservation implements EntityIntf {
 
     public Date getDate() {
         return date;
+    }
+
+    public Long getDateAsTimestamp() {
+        return date.getTime();
     }
 
     public void setDate(Date date){

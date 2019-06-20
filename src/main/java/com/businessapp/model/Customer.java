@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.businessapp.logic.IDGenerator;
+import com.businessapp.model.customserializer.CustomerJSONDeserializer;
+import com.businessapp.model.customserializer.CustomerJSONSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 
 /**
@@ -13,6 +17,10 @@ import com.businessapp.logic.IDGenerator;
  * @author Sven Graupner
  *
  */
+
+
+@JsonSerialize(using = CustomerJSONSerializer.class)
+@JsonDeserialize(using = CustomerJSONDeserializer.class)
 
 public class Customer implements EntityIntf {
 	private static final long serialVersionUID = 1L;
@@ -89,7 +97,7 @@ public class Customer implements EntityIntf {
 
 	/**
 	 * Set Customer name.
-	 * @param name Customer firstname.
+	 * @param firstname Customer firstname.
 	 */
 	public void setFirstName( String firstname ) {
 		this.firstname = firstname;

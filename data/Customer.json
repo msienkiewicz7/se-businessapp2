@@ -1,0 +1,85 @@
+[ {
+  "id" : "C.3JPDCM",
+  "firstname" : "Jens",
+  "name" : "Baumann",
+  "contacts" : "eme@yahoo.com; meyer244@gmail.com; +49170482395",
+  "notes" : [
+	 "2019-06-13 15:47:26.046;; Customer record created." ],
+  "status" : "ACTIVE"
+}, {
+  "id" : "C.DV1BXH",
+  "firstname" : "Anne",
+  "name" : "Meyer",
+  "contacts" : "",
+  "notes" : [
+	 "2019-06-13 15:47:26.047;; Customer record created." ],
+  "status" : "ACTIVE"
+}, {
+  "id" : "C.FOMDCJ",
+  "firstname" : "Jacob",
+  "name" : "Schneider",
+  "contacts" : "jacob.schneider@example.com",
+  "notes" : [
+	 "2019-06-13 15:47:26.048;; Customer record created." ],
+  "status" : "ACTIVE"
+}, {
+  "id" : "C.IDREI2",
+  "firstname" : "Isabella",
+  "name" : "Johnson",
+  "contacts" : "isabella.johnson@example.com",
+  "notes" : [
+	 "2019-06-13 15:47:26.049;; Customer record created." ],
+  "status" : "SUSPENDED"
+}, {
+  "id" : "C.1I2UL9",
+  "firstname" : "Ethan",
+  "name" : "Williams",
+  "contacts" : "ethan.williams@example.com",
+  "notes" : [
+	 "2019-06-13 15:47:26.050;; Customer record created." ],
+  "status" : "ACTIVE"
+}, {
+  "id" : "C.0Z1CSA",
+  "firstname" : "Emma",
+  "name" : "Jones",
+  "contacts" : "emma.jones@example.com",
+  "notes" : [
+	 "2019-06-13 15:47:26.051;; Customer record created." ],
+  "status" : "SUSPENDED"
+}, {
+  "id" : "C.BPRS36",
+  "firstname" : "Michael",
+  "name" : "Brown",
+  "contacts" : "michael.brown@example.com",
+  "notes" : [
+	 "2019-06-13 15:47:26.052;; Customer record created." ],
+  "status" : "ACTIVE"
+}, {
+  "id" : "C.3D8WTR",
+  "firstname" : "Pierre",
+  "name" : "Faparius",
+  "contacts" : "p.fap@tuxedo.org",
+  "notes" : [
+	 "2019-06-13 15:47:26.053;; Customer record created." ],
+  "status" : "SUSPENDED"
+}, {
+  "id" : "C.X01W5D",
+  "firstname" : "Dr. Mararethe",
+  "name" : "Böse",
+  "contacts" : "drmb@yahoo.de; 030 826 5204",
+  "notes" : [
+	 "2019-06-13 15:47:26.054;; Customer record created."
+	, "2019-06-13 15:47:26.055;; Zahlt Rechnung verspätet"
+	, "2019-06-13 15:47:26.056;; Beschwert sich über Mitarbeiter"
+	, "2019-06-13 15:47:26.057;; Greift Angestellte verbal an"
+	, "2019-06-13 15:47:26.058;; Wurde aus dem Geschäft verwiesen" ],
+  "status" : "SUSPENDED"
+}, {
+  "id" : "C.VLUVA1",
+  "firstname" : "Bacis",
+  "name" : "Boy",
+  "contacts" : "",
+  "notes" : [
+	 "2019-06-13 16:13:12.787;; Customer record created." ],
+  "status" : "ACTIVE"
+} ]

@@ -64,19 +64,19 @@ public class RepositoryBuilder implements ManagedComponentIntf {
 
 			new RepositoryConfiguration(
 				Customer,
-				PersistenceSelector.Default,
+				PersistenceSelector.JSONSerialization,
 				this::buildCustomerFixture
 			),
 
 			new RepositoryConfiguration(
 				Article,
-				PersistenceSelector.Default,
+				PersistenceSelector.JSONSerialization,
 				this::buildArticleFixture
 			),
 
 			new RepositoryConfiguration(
 				Reservation,
-				PersistenceSelector.Default,
+				PersistenceSelector.JSONSerialization,
 				this::buildReservationFixture
 			)
 		);
